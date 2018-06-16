@@ -77,9 +77,7 @@ function enableScrolling(){
 	window.onscroll=function(){};
 }
 
-function ask(code){
-	code = code;	
-	document.getElementById("archive-button").setAttribute("name",code);
+function ask(){	
 	disableScrolling();
 	$('#alertModal').modal('show');
 	$("#alertModalAnimate").animateCss('zoomIn');	
@@ -120,6 +118,42 @@ function restoreArchive(code){
 			}
 		};
 		obj.open("GET","php/admin-php.php?action="+'restoreOrder'+"&code="+code, true);
+		obj.send(null);
+	}
+	else{
+		alert("Error");
+	}
+}
+
+function deleteArchive(code){
+	
+	if(window.XMLHttpRequest){
+		obj = new XMLHttpRequest();
+	}
+	else{
+		if(window.ActiveXObject){
+			try{
+				obj = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				
+			}
+		}
+	}
+	
+	if(obj){
+		obj.onreadystatechange = function(){
+			if(this.readyState==4 && this.status==200){	
+				iziToast.success({
+					title: 'Successful',			
+					timeout: 3000,
+				});				
+				view_table();
+				closeAlert();
+				
+			}
+		};
+		obj.open("GET","php/admin-php.php?action="+'deleteArchive', true);
 		obj.send(null);
 	}
 	else{

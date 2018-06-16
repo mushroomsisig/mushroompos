@@ -2030,6 +2030,11 @@
 		$exist = $db->checkExist($sql);
 	}
 
+	function deleteArchive($db){
+		$sql = "Delete from mushroom_delivery where delivery_archive ='Yes'";
+		$exist = $db->checkExist($sql);
+	}
+
 	function deleteProduct($db){
 		$category = $_GET["category"];
 

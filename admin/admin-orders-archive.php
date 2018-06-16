@@ -34,7 +34,7 @@
   <script src="js/jquery.timers.js"> </script>
   <script src="js/admin-script.js"> </script>  
    <script src="js/admin-orders-archive.js"> </script>
-   <script src="js/admin-settings.js"> </script>
+   <!-- <script src="js/admin-settings.js"> </script> -->
   <!-- <script src="js/admin-script.js"> </script> -->
   
  
@@ -287,6 +287,7 @@
             <div class="box-body no-padding">
               <div class="mailbox-controls">                  
                 <button onclick="view_table();" type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <button onclick="ask();" type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
 				<div class="box-tools pull-right">
                 <!--<div class="has-feedback">
                   <input type="text" class="form-control input-sm" placeholder="Search by order no." />
@@ -335,6 +336,29 @@
   </aside>
 	
   
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" style="padding-top:100px;"id="alertModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content" id="alertModalAnimate" style="border-radius:3pt;">
+        <div class="modal-header" style="background-color:#e66454;color:#fff;" align="center">
+          <!--data-dismiss="modal"-->
+      <i class="fa fa-warning fa-2x"></i>
+          <h3 id='orders-label'  class="modal-title"> Alert</h3>
+        </div>
+    
+        <div class="modal-body" style="text-align:center;">
+      This action requires your confirmation. Please choose an option:
+        </div>
+        <div class="modal-footer" style=" text-align:center;">  
+        <button type="button" class="btn btn-link" onclick='closeAlert();'>Cancel</button>  
+        <button onclick="deleteArchive();" name="" id='archive-button' type="button" class="btn btn-danger">
+          <i class="fa fa-trash-o fa-lg"></i> Empty Thrash
+        </button>
+    
+        
+        </div>
+      </div>
+    </div>
+  </div>
 
 	<div id="modal-orders">   
             
