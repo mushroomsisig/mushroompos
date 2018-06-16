@@ -353,7 +353,10 @@
 							</a>
 							<a onclick="window.open('admin-summary-reports.php', 'newwindow', 'width=1366,height=662'); return false;" type="button" class="btn btn-default"><!--target="_new" href="admin-sales.php"-->
 								<i class="fa fa-eye fa-lg" style="padding-right:2px;"></i> View in pdf
-							</a></td>
+							</a>
+              <button onclick="ask();" type="button" class="btn btn-default btn-md pull-left"><i class="fa fa-trash"></i></button>
+              </td>
+              
 							<!--<td class="col-xs-3" align="right"><strong>Total</strong>: </td>
 							<td id="sales-total"> 0.00</td>-->
 						</tr>
@@ -385,19 +388,21 @@
     <div class="modal-dialog modal-sm">
       <div class="modal-content" id="alertModalAnimate" style="border-radius:3pt;">
         <div class="modal-header" style="background-color:#e66454;color:#fff;" align="center">
-          <button type="button" class="close" onclick='closeAlert();'>&times;</button><!--data-dismiss="modal"-->
-		  <i class="fa fa-warning fa-2x"></i>
+          <!--data-dismiss="modal"-->
+      <i class="fa fa-warning fa-2x"></i>
           <h3 id='orders-label'  class="modal-title"> Alert</h3>
         </div>
-		
+    
         <div class="modal-body" style="text-align:center;">
-			This action requires your confirmation. Please choose and option:
+      This action requires your confirmation. Please choose an option:
         </div>
-        <div class="modal-footer" style=" text-align:center;">		
-		<button onclick="archiveOrder(this.name);" name="" id='archive-button' type="button" class="btn btn-danger">
-			<i class="fa fa-trash-o fa-lg"></i> Delete
-		</button>
-				
+        <div class="modal-footer" style=" text-align:center;">  
+        <button type="button" class="btn btn-link" onclick='closeAlert();'>Cancel</button>  
+        <button onclick="deleteReports();" name="" id='archive-button' type="button" class="btn btn-danger">
+          <i class="fa fa-trash-o fa-lg"></i> Delete Reports
+        </button>
+    
+        
         </div>
       </div>
     </div>

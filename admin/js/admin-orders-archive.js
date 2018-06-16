@@ -125,7 +125,7 @@ function restoreArchive(code){
 	}
 }
 
-function deleteArchive(code){
+function deleteArchive(){
 	
 	if(window.XMLHttpRequest){
 		obj = new XMLHttpRequest();

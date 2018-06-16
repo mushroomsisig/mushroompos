@@ -2035,6 +2035,13 @@
 		$exist = $db->checkExist($sql);
 	}
 
+	function deleteReports($db){
+		$salesStart = $_SESSION['salesStart'];
+		$salesEnd = $_SESSION['salesEnd'];
+		$sql = "Delete from mushroom_summary where summary_date >='$salesStart' and summary_date <='$salesEnd'";
+		$exist = $db->checkExist($sql);
+	}
+
 	function deleteProduct($db){
 		$category = $_GET["category"];
 

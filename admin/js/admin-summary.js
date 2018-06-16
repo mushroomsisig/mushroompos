@@ -4,6 +4,28 @@ function start(){
 	//view_table();
 }
 
+function disableScrolling(){
+	var x=window.scrollX;
+	var y=window.scrollY;
+	window.onscroll=function(){window.scrollTo(x, y);};
+}
+
+function enableScrolling(){
+	window.onscroll=function(){};
+}
+
+function ask(){	
+	disableScrolling();
+	$('#alertModal').modal('show');
+	$("#alertModalAnimate").animateCss('zoomIn');	
+}
+
+function closeAlert(){
+	enableScrolling();
+	$('#alertModal').modal('hide');
+	$("#alertModalAnimate").animateCss('zoomOut');
+}
+
 function changeSales(){
 	//alert(value);
 	value = $("#reservation").val();
@@ -70,6 +92,42 @@ function view_table(){
 			}
 		};
 		obj.open("GET","php/admin-php.php?action="+'viewCompletedOrders', true);
+		obj.send(null);
+	}
+	else{
+		alert("Error");
+	}
+}
+
+function deleteReports(){
+	
+	if(window.XMLHttpRequest){
+		obj = new XMLHttpRequest();
+	}
+	else{
+		if(window.ActiveXObject){
+			try{
+				obj = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				
+			}
+		}
+	}
+	
+	if(obj){
+		obj.onreadystatechange = function(){
+			if(this.readyState==4 && this.status==200){	
+				iziToast.success({
+					title: 'Successful',			
+					timeout: 3000,
+				});				
+				changeSales();
+				closeAlert();
+				
+			}
+		};
+		obj.open("GET","php/admin-php.php?action="+'deleteReports', true);
 		obj.send(null);
 	}
 	else{
