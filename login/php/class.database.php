@@ -420,7 +420,7 @@
 			
 			function checkOnline(){
 				if (!isset($_SESSION['Staff'])){
-					header("Location:admin-login.php");
+					header("Location:staff-login.php");
 				}
 			}
 			
@@ -509,8 +509,7 @@
 					</button>";
 				}
 				echo "<tr>
-                  <td>$this->productNameVal</td>
-                  <td>$this->productPriceVal</td>
+                  <td>$this->productNameVal</td>                  
                   <td>$this->productAddedDate</td>
                   <td><span class='input-group-btn'>
 					$button1

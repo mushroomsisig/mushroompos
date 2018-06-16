@@ -35,7 +35,7 @@
   <script src="js/jquery.timers.js"> </script>
   <script src="js/admin-script.js"> </script>    
   <script src="js/admin-product-ajax.js"> </script>      
-
+  <script src="js/admin-settings.js"> </script>
  
   <style>
   #addProductAnimate{
@@ -291,7 +291,7 @@
                 <thead style="background-color:#e9f0f5;">
                 <tr>                  
                   <th style="text-align:center;">Product Name</th>
-                  <th style="text-align:center;">Product True Price</th>
+                  <!-- <th style="text-align:center;">Product True Price</th> -->
 				  <th style="text-align:center;">Added Date</th>
                   <th style="text-align:center;">Status</th>                  
                 </tr>
