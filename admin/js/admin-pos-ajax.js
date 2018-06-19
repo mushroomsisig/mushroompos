@@ -570,7 +570,7 @@ function printReceipt(code,payment){
 		obj.onreadystatechange = function(){
 			if(this.readyState==4 && this.status==200){					
 				//alert("Success");
-				if(this.responseText!="error"){
+				if(this.responseText!="errors"){
 					iziToast.success({
 						title: 'Successful',
 						message: 'Now printing...',				
@@ -637,7 +637,7 @@ function printBill(type){
 		obj.onreadystatechange = function(){
 			if(this.readyState==4 && this.status==200){					
 				//alert("Success");
-				if(this.responseText!="error"){
+				if(this.responseText!="errors"){
 					iziToast.success({
 						title: 'Successful',
 						message: 'Now printing...',				
@@ -1126,7 +1126,7 @@ function queueDine(){
 	if(obj){
 		obj.onreadystatechange = function(){ 	//updateProduct;
 			if(this.readyState == 4 && this.status == 200) {	
-				if(this.responseText!="error"){																	
+				if(this.responseText!="errors"){																	
 					iziToast.success({
 						message: 'Moved to queue',						
 						timeout: 2500,
@@ -1292,7 +1292,7 @@ function queuePaymentDine(){
 		obj.onreadystatechange = function(){ 	//updateProduct;
 			if(this.readyState == 4 && this.status == 200) {
 				msg = this.responseText.split("*");
-				if(msg[0]!="error"){
+				if(msg[0]!="errors"){
 					iziToast.success({
 						message: 'Printing orders',						
 						timeout: 2500,
@@ -1360,7 +1360,7 @@ function queuePaymentTakeout(){
 		obj.onreadystatechange = function(){ 	//updateProduct;
 			if(this.readyState == 4 && this.status == 200) {
 				msg = this.responseText.split("*");
-				if(msg[0]!="error"){
+				if(msg[0]!="errors"){
 					iziToast.success({
 						message: 'Printing orders',						
 						timeout: 2500,
@@ -2693,7 +2693,7 @@ function printDineReceipt(code,payment){
 			if(this.readyState==4 && this.status==200){			
 				
 				//alert("Success"); finish order
-				if(this.responseText!="error"){
+				if(this.responseText!="errors"){
 					iziToast.success({
 						title: 'Successful',
 						message: 'Now printing...',				
@@ -2751,7 +2751,7 @@ function printPaymentDineReceipt(payment){
 			if(this.readyState==4 && this.status==200){					
 				//alert("Success");
 				// alert(this.responseText);
-				if(this.responseText!="error"){												
+				if(this.responseText!="errors"){												
 
 					document.getElementById('cartQuantity').firstChild.data = "+"+1;
 					$("#cartAnimate").animateCss('bounce');
@@ -2807,7 +2807,7 @@ function printPaymentTakeoutReceipt(payment){
 		obj.onreadystatechange = function(){
 			if(this.readyState==4 && this.status==200){					
 				//alert("Success");
-				if(this.responseText!="error"){
+				if(this.responseText!="errors"){
 					
 					iziToast.success({
 						title: 'Successful',
@@ -2858,7 +2858,7 @@ function printOutReceipt(code,payment){
 		obj.onreadystatechange = function(){
 			if(this.readyState==4 && this.status==200){					
 				//alert("Success");
-				if(this.responseText!="error"){
+				if(this.responseText!="errors"){
 					iziToast.success({
 						title: 'Successful',
 						message: 'Now printing...',				

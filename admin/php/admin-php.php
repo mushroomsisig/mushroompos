@@ -2901,7 +2901,7 @@
 
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -3120,7 +3120,7 @@
 
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -4406,7 +4406,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -4707,7 +4707,7 @@
 
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -4967,7 +4967,7 @@
 
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -5208,7 +5208,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -5572,7 +5572,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -5711,7 +5711,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -5803,7 +5803,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -5892,7 +5892,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -5991,7 +5991,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -6088,7 +6088,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -6190,7 +6190,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
@@ -6323,7 +6323,7 @@
 		}
 		try {
 
-			$connector = new WindowsPrintConnector("printer");
+			$connector = new WindowsPrintConnector("printerss");
 			$printer = new Printer($connector);
 
 			$printer->initialize();
