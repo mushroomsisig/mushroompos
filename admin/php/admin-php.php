@@ -2052,9 +2052,12 @@
 		$activity = "Deleted product ($product)";
 		$db->activity_log($activity);
 
-		$sql = "Update mushroom_products set product_archive = 'Yes' where food_category='$category'";
+		// $sql = "Update mushroom_products set product_archive = 'Yes' where food_category='$category'";
+		$sql = "Delete from mushroom_products where food_category='$category'";
 		$exist = $db->checkExist($sql);
 
+		$sql2 = "Delete from mushroom_foods where food_category='$category'";
+		$exist2 = $db->checkExist($sql2);
 		/* $sql = "Select * from mushroom_products where food_category ='$category'";
 		$exist = $db->checkExist($sql);
 		$row = $db->fetch_array($exist);
@@ -2079,7 +2082,8 @@
 		$activity = "Deleted food ($food)";
 		$db->activity_log($activity);
 
-		$sql = "Update mushroom_foods set food_archive = 'Yes' where food_code='$code'";
+		// $sql = "Update mushroom_foods set food_archive = 'Yes' where food_code='$code'";
+		$sql = "Delete from mushroom_foods where food_code='$code'";
 		$exist = $db->checkExist($sql);
 		/* $sql = "Select * from mushroom_products where food_category ='$category'";
 		$exist = $db->checkExist($sql);
