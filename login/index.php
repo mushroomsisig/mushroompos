@@ -34,7 +34,7 @@
   <script src="js/jquery.js"> </script>
   <script src="js/jquery.timers.js"> </script>
   <script src="js/admin-pos-ajax.js"> </script>
-  <!-- <script src="js/admin-settings.js"> </script> -->
+  <script src="js/admin-settings.js"> </script>
   <link rel="stylesheet" href="dist/css/admin-index.css"> 
   <link rel="stylesheet" href="css/admin-pass.css">
   <style><!-- /* flipInX bounceInDown jackInTheBox*/-->
