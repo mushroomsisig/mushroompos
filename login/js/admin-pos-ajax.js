@@ -905,6 +905,8 @@ function cartMinus(quantity){
 function checkType(){
   //var quantity = document.getElementById('quantity').value;
   //var quantity = 1;
+  document.getElementById("payButton").classList.add("disabledbutton");
+  document.getElementById("print-button-add").classList.add("disabledbutton");
   var cartQuantity = document.getElementById('cartQuantity').firstChild.data;
    
   var total = parseInt(cartQuantity) + 1;
@@ -1054,7 +1056,17 @@ function checkName(){
 	}
 }
 
+function removePaymentDisable(){
+	document.getElementById("print-button").classList.remove("disabledbutton");
+}
+
+function removeTakeoutPayment(){
+	document.getElementById("print-button-takeout").classList.remove("disabledbutton");
+}
+
 function checkPaymentType(){
+	document.getElementById("print-button").classList.add("disabledbutton");
+	document.getElementById("print-button-takeout").classList.add("disabledbutton");
   //var quantity = document.getElementById('quantity').value;
   //var quantity = 1;
   //var cartQuantity = document.getElementById('cartQuantity').firstChild.data;
@@ -2458,6 +2470,7 @@ function showQueue(code){
 }
 
 function finishOrder(code){
+	document.getElementById("finish-order").classList.add("disabledbutton");
 	var cartQuantity = document.getElementById('cartQuantity').firstChild.data;
    
     var total = parseInt(cartQuantity) - 1;
@@ -2673,6 +2686,7 @@ function printDinein(code){
 }
 
 function printDineReceipt(code,payment){
+	document.getElementById("pay-print").classList.add("disabledbutton");
 	//alert(code+" "+payment);	
 	if(window.XMLHttpRequest){
 		obj = new XMLHttpRequest();
@@ -2728,6 +2742,7 @@ function printDineReceipt(code,payment){
 }
 
 function printPaymentDineReceipt(payment){
+	document.getElementById("payment-print").classList.add("disabledbutton");
 	var table = document.getElementById("table-info").value;
 	var cartQuantity = document.getElementById('cartQuantity').firstChild.data;   
 	var total = parseInt(cartQuantity) + 1;
@@ -2789,6 +2804,7 @@ function printPaymentDineReceipt(payment){
 
 function printPaymentTakeoutReceipt(payment){
 	//var table = document.getElementById("table-info").value;
+	document.getElementById("takeout-print").classList.add("disabledbutton");
 	if(window.XMLHttpRequest){
 		obj = new XMLHttpRequest();
 	}

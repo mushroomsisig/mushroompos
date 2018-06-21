@@ -34,7 +34,7 @@
   <script src="js/jquery.js"> </script>
   <script src="js/jquery.timers.js"> </script>
   <script src="js/admin-pos-ajax.js"> </script>
-  <script src="js/admin-settings.js"> </script>
+  <!-- <script src="js/admin-settings.js"> </script> -->
   <link rel="stylesheet" href="dist/css/admin-index.css"> 
   <link rel="stylesheet" href="css/admin-pass.css">
   <style><!-- /* flipInX bounceInDown jackInTheBox*/-->
@@ -1318,7 +1318,7 @@
 				 
 					<div class="col-xs-12 " style="position:relative; height:65px; background-color:#34454f; overflow:hidden; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); border-radius: 3px 3px 0px 3px;">						
 						<h3 id='orders-label' style="color:#fff;">Order Details
-						<button type="button" style="position:relative; top:-4px; border-radius:12pt; background-color:#f97a78; border-color:#f97a78; " class="close-payment-review btn btn-danger btn-number pull-right">
+						<button type="button" onclick="removePaymentDisable();" style="position:relative; top:-4px; border-radius:12pt; background-color:#f97a78; border-color:#f97a78; " class="close-payment-review btn btn-danger btn-number pull-right">
 							CLOSE
 						</button>
 						<!--<button onclick="cancelOrder(this.name);" name="" id="cancel-dine-in" type="button" style="position:relative; top:-4px; margin-right:15px; border-radius:12pt; " class="btn btn-default btn-number pull-right">
@@ -1472,7 +1472,7 @@
 				 
 					<div class="col-xs-12 " style="position:relative; height:65px; background-color:#34454f; overflow:hidden; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); border-radius: 3px 3px 0px 3px;">						
 						<h3 id='orders-label' style="color:#fff;">Order Details
-						<button type="button" style="position:relative; top:-4px; border-radius:12pt; background-color:#f97a78; border-color:#f97a78; " class="close-takeout-review btn btn-danger btn-number pull-right">
+						<button type="button" onclick="removeTakeoutPayment();" style="position:relative; top:-4px; border-radius:12pt; background-color:#f97a78; border-color:#f97a78; " class="close-takeout-review btn btn-danger btn-number pull-right">
 							CLOSE
 						</button>
 						<!--<button onclick="cancelOrder(this.name);" name="" id="cancel-dine-in" type="button" style="position:relative; top:-4px; margin-right:15px; border-radius:12pt; " class="btn btn-default btn-number pull-right">
