@@ -3289,6 +3289,8 @@
 	}
 
 	function addOrder($db){
+		unset($_SESSION['table']);
+		unset($_SESSION['Addcode']);
 		$code = $_GET['code'];
 		$sql = "Select * from mushroom_queue where queue_code = '$code'";
 			$exist = $db->checkExist($sql);
@@ -3298,8 +3300,23 @@
 			}
 		echo $table;
 		$_SESSION['table'] = $table;
+		$_SESSION['Addcode'] = $code;
 		$_SESSION['OrderType'] = "AddOrd";
 		unset($_SESSION['Customer']);
+	}
+
+	function printAddOrders($db){
+
+		$table = $_SESSION['table'];
+		date_default_timezone_set('Asia/Manila');
+		$date = date("m/d/Y");
+		$secs = time();
+		if(isset($_SESSION['POSCart'])){
+			printOrdersAdd($db,$table,'Add Order/s');
+			$code = $_SESSION['Addcode'];
+			$activity = "Add order ($code)";
+			$db->activity_log($activity);		
+		}
 	}
 
 	function queueAdd($db){
@@ -5695,6 +5712,98 @@
 					}
 			$sql7 = "Delete from mushroom_queue where queue_code = '$code' ";
 			$exist7 = $db->checkExist($sql7);
+
+		} catch (Exception $e) {
+			ob_end_clean();
+			echo "error";
+		}
+	}
+
+	function printOrdersAdd($db,$table,$type){
+
+		ob_start();
+		$total_items = 0;
+		date_default_timezone_set('Asia/Manila');
+		$date = date("m/d/Y");
+		$time = date("h:i A");
+		$cashier = "";
+		if(isset($_SESSION['Admin'])){
+			$admin = $_SESSION['Admin'];
+			$sql = "Select * from mushroom_admin where admin_username ='$admin'";
+			$exist = $db->checkExist($sql);
+			if($exist){
+				$num = $db->get_rows($exist);
+					if($num>=1){
+						$row = $db->fetch_array($exist);
+						$cashier = $row['admin_firstname'];
+					}
+
+			}
+		}
+		try {
+
+			$connector = new WindowsPrintConnector("printer");
+			$printer = new Printer($connector);
+
+			$printer->initialize();
+
+			$printer->feed();
+			$printer->setEmphasis(true);
+			$printer -> setJustification();
+			$printer->setTextSize(1,2);
+			$printer->text("-------------------------------\n");
+			$printer -> setJustification(Printer::JUSTIFY_CENTER);
+			$printer->setTextSize(2,3);
+			$printer->text("Table No.\n");
+			$printer->setTextSize(3,2);
+			$printer->text("$table\n");
+			$printer->feed();
+			$printer->setTextSize(1,2);
+			$printer->text("Order Type: $type\n\n");
+			$printer -> setJustification();
+			$printer->setTextSize(1,1);
+			$printer->text("$date              $time\n");
+			$printer->setTextSize(1,2);
+			$printer->text("-------------------------------\n");
+			$printer->setEmphasis(false);
+			$printer->setTextSize(1,1);
+			$printer -> setJustification();
+			$printer->feed();
+			if(isset($_SESSION['POSCart'])){
+				foreach ($_SESSION['POSCart'] as $cart => $cartItems) {
+					$sql = "Select * from mushroom_foods where food_code = '$cart'";
+					$exist = $db->checkExist($sql) or die(mysql_error());
+
+					if($exist){
+
+						$row = $db->fetch_array($exist);
+						$food_price = $row['food_price'];
+						$subtotal = (float)$food_price * (float)$cartItems;
+						$foodName = $row['food_name'];
+						$food_price = number_format($food_price,"2");
+						$subtotal = number_format($subtotal,"2");
+						$total_items += $cartItems;
+						$printer->setTextSize(1,3);
+						$printer->text("{$cartItems}x   $foodName \n");
+					}
+				}
+			}
+
+
+			$printer -> setJustification();
+			$printer->setTextSize(1,1);
+			$printer->setEmphasis(true);
+			$printer->text("\n");
+			$printer->text("\n\n");
+			$printer -> setJustification(Printer::JUSTIFY_RIGHT);
+			$printer->text("Total Item(s): $total_items\n");
+
+			$printer->text("\n\n\n");
+
+			$printer->feed();
+			$printer->cut();
+			$printer->close();
+
 
 		} catch (Exception $e) {
 			ob_end_clean();

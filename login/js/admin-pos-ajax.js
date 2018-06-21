@@ -1414,6 +1414,36 @@ function queuePaymentTakeout(){
 	
 }
 
+function printAddOrders(){
+	if(window.XMLHttpRequest){
+		obj = new XMLHttpRequest();
+	}
+	else{
+		if(window.ActiveXObject){
+			try{
+				obj = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				
+			}
+		}
+	}
+	
+	if(obj){
+		obj.onreadystatechange = function(){ 	//updateProduct;
+			if(this.readyState == 4 && this.status == 200) {	
+				
+			}
+		};
+		obj.open("GET","php/admin-php.php?action="+'printAddOrders', true);
+		obj.send(null);
+	}
+	else{
+		alert("Error");
+	}
+	
+}
+
 function queueAdd(){
 	//var table = document.getElementById("table-info-add").value;
 	if(window.XMLHttpRequest){
