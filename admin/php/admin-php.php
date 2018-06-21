@@ -2058,6 +2058,36 @@
 		$code = $_GET["code"];
 		$sql = "Update mushroom_delivery set delivery_archive = 'No' where delivery_code='$code'";
 		$exist = $db->checkExist($sql);
+
+		$sql3 = "Select * from mushroom_delivery where delivery_code='$code'";
+		$exist3 = $db->checkExist($sql3);
+		$row = $db->fetch_array($exist3);
+		$date = $row['delivery_sales_date'];
+		$secs = $row['delivery_seconds'];
+
+		$sqli = "Select * from mushroom_orders where delivery_code = '$code'";
+		$exists = $db->checkExist($sqli);
+		while($rows = $db->fetch_array($exists)){
+			$sql2 = "";
+			$new_quantity = 0;
+			$food = $rows['order_foods'];
+			$quantity = $rows['order_quantity'];
+			$sql1 = "Select * from mushroom_summary where summary_foods = '$food' AND summary_date = '$date'";
+			$exist1 = $db->checkExist($sql1);
+			$num_rows = $db->get_rows($exist1);
+
+			if($num_rows == 0){
+				$sql2 = "Insert into mushroom_summary values('$food','$quantity','$date','$secs')";				
+			}
+			else{
+				$row1 = $db->fetch_array($exist1);				
+				$current_quantity = $row1['summary_quantity'];
+				$new_quantity = (int)$current_quantity + (int)$quantity;
+				$sql2 = "Update mushroom_summary set summary_quantity = '$new_quantity' where summary_foods = '$food' AND summary_date ='$date'";
+				
+			}			
+				$exist2 = $db->checkExist($sql2);
+		}
 	}
 
 	function deleteArchive($db){
