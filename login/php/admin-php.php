@@ -5281,6 +5281,10 @@
 						$text_discount = "100%";
 						$discount_text = "100";
 					}
+					else{
+						$text_discount = "20%";
+						$discount_text = "20";
+					}
 				}
 				else{
 					$text_discount = "20%";		
