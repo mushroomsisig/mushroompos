@@ -1468,6 +1468,7 @@ function queueAdd(){
 					message: 'Succesfully updated',						
 					timeout: 2500,
 				});	
+				printAddOrders();
 				clearCart();
 				hideTable();
 			}
