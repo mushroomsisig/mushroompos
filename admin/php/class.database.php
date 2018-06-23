@@ -480,11 +480,20 @@
 					<td>$this->foodSubtotal</td></tr>";
 			}
 			
-			function show_reviewTableColor($color){
-				echo "<tr style='background-color:$color;'><td>$this->foodName</td>
+			function show_reviewTableColor($color,$button,$code){
+				$id = $this->foodName."/".$code;
+				if($button=="No"){
+					echo "<tr style='background-color:$color;'><td>$this->foodName</td>
+					<td>$this->foodQuantity</td>
+					<td>$this->foodPrice</td>
+					<td>$this->foodSubtotal <i style='color:#be3000; padding-left:10px; cursor:pointer;' id='$id' onclick='removeAddOrder(this.id);' class='fa fa-minus-circle fa-2x pull-right'></i></td></tr>";
+				}
+				else{
+					echo "<tr style='background-color:$color;'><td>$this->foodName</td>
 					<td>$this->foodQuantity</td>
 					<td>$this->foodPrice</td>
 					<td>$this->foodSubtotal</td></tr>";
+				}
 			}
 			
 			function show_products(){

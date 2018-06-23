@@ -2500,6 +2500,47 @@ function showQueue(code){
 	
 }
 
+function removeAddOrder(id){
+	var msg = id.split("/");
+	var food = msg[0];
+	var code = msg[1];
+	
+	if(window.XMLHttpRequest){
+		obj = new XMLHttpRequest();
+	}
+	else{
+		if(window.ActiveXObject){
+			try{
+				obj = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				
+			}
+		}
+	}
+	
+	if(obj){
+		obj.onreadystatechange = function(){ 
+			if(this.readyState == 4 && this.status == 200) {
+				if(this.responseText=="success"){
+					iziToast.success({
+						message: 'Succesfully updated',						
+						timeout: 2500,
+					});						
+					showQueue(code);
+				}
+				
+	
+			}
+		};
+		obj.open("GET","php/admin-php.php?action="+'removeAddOrder'+"&code="+code+"&food="+food, true);
+		obj.send(null);
+	}
+	else{
+		alert("Error");
+	}	
+}
+
 function finishOrder(code){
 	document.getElementById("finish-order").classList.add("disabledbutton");
 	var cartQuantity = document.getElementById('cartQuantity').firstChild.data;

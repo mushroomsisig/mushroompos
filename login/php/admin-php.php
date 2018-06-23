@@ -3423,15 +3423,17 @@
 
 				if($paid=="Yes"){
 					$color = "#ff9999";
+					$paid_button = "Yes";
 				}
 				else{
 					$color = "#fff";
+					$paid_button = "No";
 					$total_price += $subtotal;
 					$count++;
 				}
 
 
-				$db->show_reviewTableColor($color);
+				$db->show_reviewTableColor($color,$paid_button,$code);
 			}
 			echo "*".$code;
 			echo "*".$date;
@@ -3442,6 +3444,17 @@
 			echo "*".$count;
 			echo "*".date('D, m/d/Y', $secs);
 			echo "*".date('h:iA', $secs);
+	}
+
+	function removeAddOrder($db){
+		$food = $_GET['food'];
+		$code = $_GET['code'];
+
+		$sql = "Delete from mushroom_queue_orders where queue_code = '$code' AND orders_foods = '$food' AND queue_paid ='No'";
+		$exist = $db->checkExist($sql);
+		if($exist){
+			echo "success";
+		}
 	}
 
 	function discountOrder($db){
