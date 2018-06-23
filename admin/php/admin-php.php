@@ -758,13 +758,19 @@
 					$ctr =0;
 					//$val = array($row['delivery_date'],$row['delivery_code'],$row['delivery_type']);
 					$val = array($row['summary_foods'],$row['summary_quantity']);
+					$id = $row['summary_date']."/".$row['summary_quantity']."/".$row['summary_foods'];					
 					$data = $val;
 					$quantity = 0;
 					$subtotal = 0;
 						echo "<tr>";
 						//$style = "text-align:left;padding-left:135px;";
 						foreach ($data as $value) {
-						  echo "<td>$value</td>";
+						  if($ctr==0){
+						  	echo "<td>$value</td>";
+						  }
+						  else{
+						  	echo "<td><label id='$id' onclick='load(this.id,event);' style='cursor:pointer; border:solid 1.5pt #ccc; width:10px height:10px; border-radius:2em; padding:0px 7px 0px 7px;'>$value</label> </td>";
+						  }
 						 // $style = "text-align:right;padding-right:135px;";
 						  $ctr++;
 
@@ -1503,6 +1509,20 @@
 			}
 		}
 		echo $total;
+	}
+
+	function updateSummary($db){
+		$date = $_GET['date'];
+		$quantity = $_GET['quantity'];
+		$food = $_GET['food'];
+		
+		if($quantity=="0"){
+			$sql = "Delete from mushroom_summary where summary_date = '$date' AND summary_foods = '$food'";
+		}
+		else{
+			$sql = "Update mushroom_summary set summary_quantity = '$quantity' where summary_date ='$date' AND summary_foods ='$food'";
+		}
+			$exist = $db->checkExist($sql);
 	}
 
 	function reviewOrder($db){

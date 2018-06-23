@@ -70,6 +70,68 @@ function changeSales(){
 		alert("Error");
 	}
 }
+
+function handleKeyPress(e){
+ var key=e.keyCode || e.which;
+ var id = $("#confirmUpdate").attr("name");
+  if (key==13){
+	 $("#qtyModal").modal("hide");
+     summaryUpdate(id);
+  }
+  
+}
+
+function load(qty,evt){
+	
+	var msg = qty.split("/");
+	quantity = msg[1];
+	date = msg[0];
+	food = msg[2];
+	disableScrolling();
+	id = date+"/"+food;
+	
+	$("#qtyModal").modal("show");
+
+	$("#txtQty").val(quantity);
+	$("#txtQty").select();	
+	document.getElementById("confirmUpdate").setAttribute("name",id);
+}
+
+function summaryUpdate(id){
+	var msg = id.split("/");
+	var date = msg[0];
+	var food = msg[1];
+	var quantity = parseInt($("#txtQty").val());
+	
+	if(window.XMLHttpRequest){
+		obj = new XMLHttpRequest();
+	}
+	else{
+		if(window.ActiveXObject){
+			try{
+				obj = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				
+			}
+		}
+	}
+	
+	if(obj){
+		obj.onreadystatechange = function(){ 
+			if(this.readyState == 4 && this.status == 200) {		
+				
+				changeSales();
+			}
+		};
+		obj.open("GET","php/admin-php.php?action="+'updateSummary'+"&date="+date+"&quantity="+quantity+"&food="+food, true);
+		obj.send(null);
+	}
+	else{
+		alert("Error");
+	}
+  
+}
 function view_table(){
 	if(window.XMLHttpRequest){
 		obj = new XMLHttpRequest();

@@ -408,6 +408,35 @@
     </div>
   </div>
 	
+  <div class="modal" data-backdrop="static" data-keyboard="false" style="padding-top:100px;"id="qtyModal" role="dialog">
+  <form id="reg-form" class='reg-form'>
+    <div id="qtyModalBody" class="modal-dialog modal-sm">
+      <div class="modal-content" id="qtyModalAnimate" style="border-radius:3pt;">
+        <div class="modal-header">
+          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+          <h3 id='orders-label'class="modal-title"><i class="fa fa-sort-numeric-asc"></i> Quantity</h3>
+        </div>
+    
+        <div class="modal-body">
+      <div class="has-feedback ">
+         <input type="text" style="text-align:right; padding:40px; font-size:25pt;" id="txtQty" onkeypress="handleKeyPress(event); return isNumbers(event); " class="input-lg form-control">
+      </div>
+      <!--<div class="has-feedback ">
+        <input type="text" onkeypress="return isNumbers(event)" class="input-lg form-control" id="txtQty" placeholder="0">
+      </div>-->
+        </div>
+        <div class="modal-footer">    
+      <a data-dismiss="modal" class="btn btn-default" data-dismiss="modal">
+        <i class="fa fa-ban fa-1x"></i> Cancel
+      </a>
+      <button type="button" onclick="summaryUpdate(this.name);" name="" id="confirmUpdate" data-dismiss="modal" class="btn btn-success" >
+        <i class="fa fa-check-circle fa-lg"></i> Confirm
+      </button>   
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
   
 
 	<div id="modal-orders">   
