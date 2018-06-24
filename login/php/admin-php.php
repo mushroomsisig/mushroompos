@@ -5294,27 +5294,34 @@
 			$exist2 = $db->checkExist($sql2);
 				if(isset($_SESSION['Discount'])){
 					$ctr = count($_SESSION['Discount']);
-					$choice = $_SESSION['Choice'];
-					if($_SESSION['Choice']==0.20){
-						$text_discount = "20%";
-						$discount_text = "20";
-					}
-					if($_SESSION['Choice']==0.50){
-						$text_discount = "50%";
-						$discount_text = "50";
-					}
-					if($_SESSION['Choice']==0.70){
-						$text_discount = "70%";
-						$discount_text = "70";
-					}
-					if($_SESSION['Choice']==1.00){
-						$text_discount = "100%";
-						$discount_text = "100";
+					if(isset($_SESSION['Choice'])){
+						$choice = $_SESSION['Choice'];
+						if($_SESSION['Choice']==0.20){
+							$text_discount = "20%";
+							$discount_text = "20";
+						}
+						if($_SESSION['Choice']==0.50){
+							$text_discount = "50%";
+							$discount_text = "50";
+						}
+						if($_SESSION['Choice']==0.70){
+							$text_discount = "70%";
+							$discount_text = "70";
+						}
+						if($_SESSION['Choice']==1.00){
+							$text_discount = "100%";
+							$discount_text = "100";
+						}
+						else{
+							$text_discount = "20%";
+							$discount_text = "20";
+						}
 					}
 					else{
-						$text_discount = "20%";
-						$discount_text = "20";
-					}
+							$text_discount = "20%";
+							$discount_text = "20";
+						}
+					
 				}
 				else{
 					$text_discount = "20%";		
