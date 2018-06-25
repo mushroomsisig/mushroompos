@@ -473,8 +473,14 @@
 				</tr>";
 			}	
 
-			function show_reviewTable(){
-				echo "<tr background-color:><td>$this->foodName</td>
+			function show_reviewTable($discounted, $type){
+				if($discounted=="Yes"){
+					$name = $this->foodName."({$type}%)";
+				}
+				else{
+					$name = $this->foodName;
+				}
+				echo "<tr background-color:><td>$name</td>
 					<td>$this->foodQuantity</td>
 					<td>$this->foodPrice</td>
 					<td>$this->foodSubtotal</td></tr>";

@@ -1126,8 +1126,9 @@
 							//$subtotal =$subtotal;
 							$db->set_foodSubtotal(number_format($subtotal,"2"));
 							$total_price += $subtotal;
-
-							$db->show_reviewTable();
+							$order_discount = $row2['order_discount'];
+							$discount_type = $row2['order_discount_type'];
+							$db->show_reviewTable($order_discount,$discount_type);
 						}
 					}
 					echo "*".$code;
