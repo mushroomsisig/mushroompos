@@ -2034,7 +2034,7 @@
 
 	function archiveOrder($db){
 		$code = $_GET["code"];
-		//[TODO]
+		
 		$sql = "Update mushroom_delivery set delivery_archive = 'Yes' where delivery_code='$code'";
 		$exist = $db->checkExist($sql);
 
@@ -5298,6 +5298,7 @@
 		}
 	}
 	function printDineReceipt($db){
+		// [TODO]
 		$code = $_GET["code"];
 		$payment = $_GET["payment"];
 		ob_start();
@@ -5578,73 +5579,18 @@
 						$sql8 = "Select * from mushroom_orders where delivery_code = '$code' and order_foods ='$foodName'";
 						$exist8 = $db->checkExist($sql8)or die(mysql_error());
 						$num2 = $db->get_rows($exist8);
-
-						if($num2>=1){
-							$rows2 = $db->fetch_array($exist8);
-
-							$qty = $rows2['order_quantity'];
-							//echo $qty." ";
-							$qty = floatval(str_replace(",","",$qty));
-							$totals =$rows2['order_subtotal'];
-							/* echo $totals." ";
-							echo $cartItems." ";
-							echo $subtotal." "; */
-							$totals = floatval(str_replace(",","",$totals));
-							$cartItems += $qty;
-							$subtotal += $totals;
-							//echo $cartItems." ";echo $subtotal." ";
-							$sql9 = "Update mushroom_orders set order_quantity ='$cartItems',order_subtotal='$subtotal' where delivery_code ='$code' and order_foods ='$foodName'";
-							$exist9 = $db->checkExist($sql9) or die(mysql_error());
+						echo $discountedOrder;
+						if($discountedOrder=="Yes"){
+							$choice = $row2[queue_discount_text];
+							$sql6 = "Insert into mushroom_orders values('$code','$foodName','$cartItems','$food_price','$subtotal','Yes','$choice')";
+							$exist6 = $db->checkExist($sql6) or die(mysql_error());
+							
 						}
 						else{
-							echo $discountedOrder;
-							if($discountedOrder=="Yes"){
-								$choice = $row2[queue_discount_text];
-								/* $subtotal =  floatval(str_replace(",","",$subtotal));
-								echo $subtotal."?";
-								$discounted = $subtotal * 0.20;
-								echo $discounted." ";
-								//$subtotal = $subtotal - $discounted;
-								//echo $subtotal; */
-								$foodName.="({$choice}%)";
-								$sql6 = "Insert into mushroom_orders values('$code','$foodName','$cartItems','$food_price','$subtotal')";
-								$exist6 = $db->checkExist($sql6) or die(mysql_error());
-								//$sql3 = "Insert into mushroom_orders values('$code','$food','$cartItems','$food_price','$subtotal')";
-							}
-							else{
-								$sql6 = "Insert into mushroom_orders values('$code','$foodName','$cartItems','$food_price','$subtotal')";
-								$exist6 = $db->checkExist($sql6) or die(mysql_error());
-								//$subtotal = $row2['orders_subtotal'];
-								//$sql3 = "Insert into mushroom_orders values('$code','$food','$cartItems','$food_price','$subtotal')";
-							}
-							/* if(isset($_SESSION['Discount'])){
-									$discountedOrder = $_SESSION['Discount'];
-
-									if($food==$discountedOrder){
-
-										$subtotal =  floatval(str_replace(",","",$subtotal));
-										$discounted = $subtotal * 0.20;
-										$subtotal = $subtotal - $discounted;
-										$food.="(20%)";
-										$sql3 = "Insert into mushroom_orders values('$code','$food','$cartItems','$food_price','$subtotal')";
-									}
-									else{
-										//$subtotal = $row2['orders_subtotal'];
-
-										$sql3 = "Insert into mushroom_orders values('$code','$food','$cartItems','$food_price','$subtotal')";
-									}
-								}
-								else{
-									//$subtotal = $row2['orders_subtotal'];
-									$food = $row2['food_name'];
-									$sql3 = "Insert into mushroom_orders values('$code','$food','$cartItems','$food_price','$subtotal')";
-								} */
-
-							//echo "a".$code." ".$foodName." ".$cartItems." ".$food_price." ".$subtotal;
+							$sql6 = "Insert into mushroom_orders values('$code','$foodName','$cartItems','$food_price','$subtotal','No','$choice')";
+							$exist6 = $db->checkExist($sql6) or die(mysql_error());
 						}
-
-						$foods = explode("(20%)",$foodName);
-						$foodName = $foods[0];
+					
 						$sql10= "Select * from mushroom_summary where summary_date = '$dateSales' and summary_foods='$foodName'";
 						$exist10 = $db->checkExist($sql10) or die(mysql_error());
 						$get_rows10 = $db->get_rows($exist10);
@@ -5659,7 +5605,7 @@
 								$sql11 = "Insert into mushroom_summary values('$foodName','$cartItems','$dateSales','$secs')";
 								$exist11 = $db->checkExist($sql11) or die(mysql_error());
 							}
-						//echo "A";
+						
 					}
 
 			$sql7 = "Delete from mushroom_queue where queue_code = '$code' ";
@@ -5674,6 +5620,7 @@
 	}
 
 	function printOutReceipt($db){
+		// [TODO]
 		$code = $_GET["code"];
 		$payment = $_GET["payment"];
 		ob_start();
@@ -6385,6 +6332,7 @@
 	}
 
 	function printDelivery($db){
+		// [TODO]
 		$code = $_GET["code"];
 		ob_start();
 		$total_items = 0;
