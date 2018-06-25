@@ -5300,15 +5300,15 @@
 							$text_discount = "20%";
 							$discount_text = "20";
 						}
-						if($_SESSION['Choice']==0.50){
+						else if($_SESSION['Choice']==0.50){
 							$text_discount = "50%";
 							$discount_text = "50";
 						}
-						if($_SESSION['Choice']==0.70){
+						else if($_SESSION['Choice']==0.70){
 							$text_discount = "70%";
 							$discount_text = "70";
 						}
-						if($_SESSION['Choice']==1.00){
+						else if($_SESSION['Choice']==1.00){
 							$text_discount = "100%";
 							$discount_text = "100";
 						}
