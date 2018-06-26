@@ -2900,7 +2900,7 @@
 				$db->set_foodQuantity($cartItems);
 				$db->set_foodPrice(number_format($food_price,"2"));
 				$db->set_foodSubtotal(number_format($subtotal,"2"));
-				$db->show_reviewTable();
+				$db->show_reviewPayment();
 				$total_price += $subtotal;
 				//$subtotal = floatval(str_replace(",","",$subtotal));
 			}
