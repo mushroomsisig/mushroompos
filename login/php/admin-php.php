@@ -5523,6 +5523,7 @@
 							
 						}
 						else{
+							$choice = ' ';
 							$sql6 = "Insert into mushroom_orders values('$code','$foodName','$cartItems','$food_price','$subtotal','No','$choice')";
 							$exist6 = $db->checkExist($sql6) or die(mysql_error());
 						}
