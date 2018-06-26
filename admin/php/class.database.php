@@ -485,6 +485,13 @@
 					<td>$this->foodPrice</td>
 					<td>$this->foodSubtotal</td></tr>";
 			}
+
+			function show_reviewPayment(){
+				echo "<tr background-color:><td>$this->foodName</td>
+					<td>$this->foodQuantity</td>
+					<td>$this->foodPrice</td>
+					<td>$this->foodSubtotal</td></tr>";
+			}
 			
 			function show_reviewTableColor($color,$button,$code){
 				$id = $this->foodName."/".$code;
