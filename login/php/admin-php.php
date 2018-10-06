@@ -3660,8 +3660,8 @@
 		else if($choice=='50'){
 			$choice = 0.50;
 		}
-		else if($choice=='70'){
-			$choice = 0.70;
+		else if($choice=='5'){
+			$choice = 0.05;
 		}
 		else{
 			$choice = 1.00;
@@ -4045,8 +4045,8 @@
 		else if($choice=='50'){
 			$choice = 0.50;
 		}
-		else if($choice=='70'){
-			$choice = 0.70;
+		else if($choice=='05'){
+			$choice = 0.05;
 		}
 		else{
 			$choice = 1.00;

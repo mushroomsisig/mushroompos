@@ -831,9 +831,9 @@
 		
         <div class="modal-body">
 			<div class="has-feedback ">
+				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentVIPID('5');" src='images/icon-05.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentVIPID('20');" src='images/icon-20.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentVIPID('50');" src='images/icon-50.png'v width='65' >
-				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentVIPID('70');" src='images/icon-70.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentVIPID('100');" src='images/icon-100.png'v width='65' >
 				 <!-- <input type="text" style="text-align:right; padding:40px; font-size:25pt;" id="txtReviewVIP" onkeypress="handleKeyPressCustomerReviewVIP(event); return isNumbers(event); " class="input-lg form-control"> -->
 			</div>
@@ -863,9 +863,9 @@
 		
         <div class="modal-body">
 			<div class="has-feedback ">
+				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentTkVIPID('5');" src='images/icon-05.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentTkVIPID('20');" src='images/icon-20.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentTkVIPID('50');" src='images/icon-50.png'v width='65' >
-				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentTkVIPID('70');" src='images/icon-70.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentTkVIPID('100');" src='images/icon-100.png'v width='65' >
 				 <!-- <input type="text" style="text-align:right; padding:40px; font-size:25pt;" id="txtReviewVIP" onkeypress="handleKeyPressCustomerReviewVIP(event); return isNumbers(event); " class="input-lg form-control"> -->
 			</div>
@@ -923,9 +923,9 @@
 		
         <div class="modal-body">
 			<div class="has-feedback ">
+				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentReviewVIPID('5');" src='images/icon-05.png'v width='65' >
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentReviewVIPID('20');" src='images/icon-20.png'v width='65' >
-				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentReviewVIPID('50');" src='images/icon-50.png'v width='65' >
-				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentReviewVIPID('70');" src='images/icon-70.png'v width='65' >
+				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentReviewVIPID('50');" src='images/icon-50.png'v width='65' >	
 				<img data-dismiss="modal" style="cursor:pointer;" onclick="discountPaymentReviewVIPID('100');" src='images/icon-100.png'v width='65' >
 				 <!-- <input type="text" style="text-align:right; padding:40px; font-size:25pt;" id="txtReviewVIP" onkeypress="handleKeyPressCustomerReviewVIP(event); return isNumbers(event); " class="input-lg form-control"> -->
 			</div>
