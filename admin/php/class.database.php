@@ -471,16 +471,10 @@
 					<td style='line-height:3;'><i style='color:#009551; cursor:pointer;' id='$id' onclick='cartIncrease(this.id);' class='fa fa-chevron-up fa-2x'></i><br/><i style='color:#7e6369; cursor:pointer;' id='$id' onclick='cartDecrease(this.id)'; class='fa fa-chevron-down fa-2x'></i> </td>
 					<td ><i style='color:#be3000; padding-left:10px; cursor:pointer;' id='$this->foodCode' onclick='removeOrder(this.id);' class='fa fa-trash fa-2x'></i></td>
 				</tr>";
-			}	
-
-			function show_reviewTable($discounted, $type){
-				if($discounted=="Yes"){
-					$name = $this->foodName."({$type}%)";
-				}
-				else{
-					$name = $this->foodName;
-				}
-				echo "<tr background-color:><td>$name</td>
+			}
+	
+			function show_reviewTable(){
+				echo "<tr background-color:><td>$this->foodName</td>
 					<td>$this->foodQuantity</td>
 					<td>$this->foodPrice</td>
 					<td>$this->foodSubtotal</td></tr>";

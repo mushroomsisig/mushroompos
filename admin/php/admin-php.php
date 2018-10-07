@@ -1128,7 +1128,7 @@
 							$total_price += $subtotal;
 							$order_discount = $row2['order_discount'];
 							$discount_type = $row2['order_discount_type'];
-							$db->show_reviewTable($order_discount,$discount_type);
+							$db->show_reviewTable(); // ($order_discount,$discount_type)
 						}
 					}
 					echo "*".$code;
