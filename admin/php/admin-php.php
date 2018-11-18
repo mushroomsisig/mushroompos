@@ -4897,9 +4897,9 @@
 											$text_discount = "50%";
 											$discount_text = "50";
 										}
-										if($_SESSION['Choice']==0.70){
-											$text_discount = "70%";
-											$discount_text = "70";
+										if($_SESSION['Choice']==0.05){
+											$text_discount = "5%";
+											$discount_text = "5";
 										}
 										if($_SESSION['Choice']==1.00){
 											$text_discount = "100%";
@@ -5173,9 +5173,9 @@
 												$text_discount = "50%";
 												$discount_text = "50";
 											}
-											else if($_SESSION['Choice']==0.70){
-												$text_discount = "70%";
-												$discount_text = "70";
+											else if($_SESSION['Choice']==0.05){
+												$text_discount = "5%";
+												$discount_text = "5";
 											}
 											else if($_SESSION['Choice']==1.00){
 												$text_discount = "100%";
@@ -5391,9 +5391,9 @@
 							$text_discount = "50%";
 							$discount_text = "50";
 						}
-						else if($_SESSION['Choice']==0.70){
-							$text_discount = "70%";
-							$discount_text = "70";
+						else if($_SESSION['Choice']==0.05){
+							$text_discount = "5%";
+							$discount_text = "5";
 						}
 						else if($_SESSION['Choice']==1.00){
 							$text_discount = "100%";
